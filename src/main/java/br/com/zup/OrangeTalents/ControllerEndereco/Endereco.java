@@ -4,8 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+
 
 @Entity
 public class Endereco {
@@ -14,30 +13,56 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    private String logadouro;
-
-    @NotBlank
-    private Integer numero;
-
-    @NotBlank
-    private String complemento;
-
-    @NotBlank
     private String bairro;
 
-    @NotBlank
+    private String cep;
+
     private String cidade;
 
-    @NotBlank
-    @Size(max = 2)
+    private String complemento;
+
     private String estado;
 
-    @NotBlank
-    private String cep;
+    private String logadouro;
+
+    private Integer numero;
+
+    public Endereco(String bairro, String cep, String cidade, String complemento, String estado, String logadouro, Integer numero) {
+        this.bairro = bairro;
+        this.cep = cep;
+        this.cidade = cidade;
+        this.complemento = complemento;
+        this.estado = estado;
+        this.logadouro = logadouro;
+        this.numero = numero;
+    }
+
+    @Deprecated
+    public Endereco() {}
+
 
     public Long getId() {
         return id;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public String getEstado() {
+        return estado;
     }
 
     public String getLogadouro() {
@@ -46,25 +71,5 @@ public class Endereco {
 
     public Integer getNumero() {
         return numero;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public String getCep() {
-        return cep;
     }
 }
