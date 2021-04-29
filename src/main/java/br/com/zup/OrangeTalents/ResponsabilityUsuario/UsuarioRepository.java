@@ -1,4 +1,4 @@
-package br.com.zup.OrangeTalents.ControllerUsuario;
+package br.com.zup.OrangeTalents.ResponsabilityUsuario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

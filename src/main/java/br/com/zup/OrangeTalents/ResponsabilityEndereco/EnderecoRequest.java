@@ -1,9 +1,8 @@
-package br.com.zup.OrangeTalents.ControllerEndereco;
+package br.com.zup.OrangeTalents.ResponsabilityEndereco;
 
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Component

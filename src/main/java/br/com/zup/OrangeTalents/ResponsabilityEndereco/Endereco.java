@@ -1,9 +1,8 @@
-package br.com.zup.OrangeTalents.ControllerEndereco;
+package br.com.zup.OrangeTalents.ResponsabilityEndereco;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import br.com.zup.OrangeTalents.ResponsabilityUsuario.Usuario;
+
+import javax.persistence.*;
 
 
 @Entity
@@ -27,7 +26,14 @@ public class Endereco {
 
     private Integer numero;
 
-    public Endereco(String bairro, String cep, String cidade, String complemento, String estado, String logadouro, Integer numero) {
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_USUARIO")
+    private Usuario usuario;
+
+    @Deprecated
+    public Endereco() {}
+
+    public Endereco(String bairro, String cep, String cidade, String complemento, String estado, String logadouro, Integer numero, Usuario usuario) {
         this.bairro = bairro;
         this.cep = cep;
         this.cidade = cidade;
@@ -35,11 +41,8 @@ public class Endereco {
         this.estado = estado;
         this.logadouro = logadouro;
         this.numero = numero;
+        this.usuario = usuario;
     }
-
-    @Deprecated
-    public Endereco() {}
-
 
     public Long getId() {
         return id;
@@ -72,4 +75,9 @@ public class Endereco {
     public Integer getNumero() {
         return numero;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
 }

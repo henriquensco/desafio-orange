@@ -1,4 +1,4 @@
-package br.com.zup.OrangeTalents.ControllerEndereco;
+package br.com.zup.OrangeTalents.ResponsabilityEndereco;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
