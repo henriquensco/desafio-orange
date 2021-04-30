@@ -29,6 +29,9 @@ public class EnderecoRequest {
     @NotBlank
     private String cep;
 
+    @NotBlank
+    private Long userId;
+
 
     public String getLogadouro() { return logadouro; }
 
@@ -52,5 +55,20 @@ public class EnderecoRequest {
 
     public String getCep() {
         return cep;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public Endereco toModel() {
+        return new Endereco(
+                this.bairro,
+                this.cep,
+                this.cidade,
+                this.complemento,
+                this.estado,
+                this.logadouro,
+                this.numero );
     }
 }

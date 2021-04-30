@@ -3,6 +3,8 @@ package br.com.zup.OrangeTalents.ResponsabilityUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/orange")
 public class UsuarioController {
@@ -11,7 +13,7 @@ public class UsuarioController {
     private UsuarioRepository repository;
 
     @PostMapping("/usuario")
-    String usuario(@RequestBody Usuario usuario) {
+    String usuario(@RequestBody @Valid Usuario usuario) {
         repository.save(usuario);
         return usuario.toString();
     }

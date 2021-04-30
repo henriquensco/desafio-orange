@@ -1,6 +1,9 @@
+package br.com.zup.OrangeTalents.ResponsabilityUsuario;
+
 import br.com.zup.OrangeTalents.ResponsabilityEndereco.Endereco;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -17,6 +20,7 @@ public class Usuario {
     private String nome;
 
     //@Column(unique = true)
+    @Email(message = "Alguém já utiliza este email")
     private String email;
 
     //@Column(unique = true)
@@ -24,19 +28,19 @@ public class Usuario {
 
     private LocalDate dataNasc;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_USUARIO")
-    private List<Endereco> endereco;
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<Endereco> enderecos;
 
     @Deprecated
     public Usuario() {}
 
-    public Usuario(String nome, String email, String cpf, LocalDate dataNasc, List<Endereco> endereco) {
+    public Usuario(String nome, String email, String cpf, LocalDate dataNasc, List<Endereco> enderecos) {
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
         this.dataNasc = dataNasc;
-        this.endereco = endereco;
+        this.enderecos = enderecos;
     }
 
     public Long getId() {
@@ -45,6 +49,10 @@ public class Usuario {
 
     public String getNome() {
         return nome;
+    }
+
+    public List<Endereco> getEnderecos() {
+        return enderecos;
     }
 
     public String getEmail() {
@@ -59,7 +67,19 @@ public class Usuario {
         return dataNasc;
     }
 
-    public List<Endereco> getEndereco() {
-        return endereco;
+    public void setEnderecos(Endereco endereco) {
+        this.enderecos.add(endereco);
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", dataNasc=" + dataNasc +
+                ", enderecos=" + enderecos +
+                '}';
     }
 }

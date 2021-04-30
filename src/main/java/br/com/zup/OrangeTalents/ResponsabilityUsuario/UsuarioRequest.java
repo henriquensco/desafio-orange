@@ -1,5 +1,6 @@
 package br.com.zup.OrangeTalents.ResponsabilityUsuario;
 
+import br.com.zup.OrangeTalents.ResponsabilityEndereco.EnderecoRequest;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
@@ -14,8 +15,8 @@ public class UsuarioRequest {
     @NotBlank //pq coloquei NotBlank x NotEmpty
     private String nome;
 
-    @Email
     @NotBlank
+    @Email(message = "Alguém já utiliza este email")
     private String email;
 
     @CPF
