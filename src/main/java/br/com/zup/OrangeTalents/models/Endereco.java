@@ -24,7 +24,6 @@ public class Endereco {
 
     private Integer numero;
 
-    @JoinColumn()
     private Long usuario;
 
     @Deprecated

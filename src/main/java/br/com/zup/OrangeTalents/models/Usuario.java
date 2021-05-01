@@ -1,7 +1,12 @@
 package br.com.zup.OrangeTalents.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.validator.constraints.br.CPF;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -15,15 +20,20 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Pq IDENTITY e não AUTO  - O hibernete pricisa de um Id
     private Long id;
 
+    @NotBlank
     private String nome;
 
     //@Column(unique = true)
-    @Email(message = "Alguém já utiliza este email")
+    @NotBlank
+    @Email()
     private String email;
 
     //@Column(unique = true)
+    @NotBlank
+    @CPF
     private String cpf;
 
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate dataNasc;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
