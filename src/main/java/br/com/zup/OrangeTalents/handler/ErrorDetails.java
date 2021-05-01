@@ -1,7 +1,5 @@
 package br.com.zup.OrangeTalents.handler;
 
-import java.util.Date;
-
 public class ErrorDetails {
 
     private Integer statusCode;

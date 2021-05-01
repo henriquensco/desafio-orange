@@ -6,7 +6,6 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.List;
         @UniqueConstraint(columnNames = "email"),
         @UniqueConstraint(columnNames = "cpf")
 })
-public class Usuario {
+public class UsuarioModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Pq IDENTITY e não AUTO  - O hibernete pricisa de um Id
     private Long id;
@@ -26,7 +25,7 @@ public class Usuario {
 
     //@Column(unique = true)
     @NotBlank
-    @Email()
+    @Email(message = "deve ser um endereço de e-mail bem formado]")
     private String email;
 
     //@Column(unique = true)
@@ -39,12 +38,12 @@ public class Usuario {
     private LocalDate dataNasc;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
-    private List<Endereco> enderecos;
+    private List<EnderecoModel> enderecos;
 
     @Deprecated
-    public Usuario() {}
+    public UsuarioModel() {}
 
-    public Usuario(String nome, String email, String cpf, LocalDate dataNasc, List<Endereco> enderecos) {
+    public UsuarioModel(String nome, String email, String cpf, LocalDate dataNasc, List<EnderecoModel> enderecos) {
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
@@ -60,7 +59,7 @@ public class Usuario {
         return nome;
     }
 
-    public List<Endereco> getEnderecos() {
+    public List<EnderecoModel> getEnderecos() {
         return enderecos;
     }
 
@@ -76,7 +75,7 @@ public class Usuario {
         return dataNasc;
     }
 
-    public void setEnderecos(Endereco endereco) {
+    public void setEnderecos(EnderecoModel endereco) {
         this.enderecos.add(endereco);
     }
 

@@ -1,35 +1,47 @@
 package br.com.zup.OrangeTalents.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 @Entity
-public class Endereco {
+public class EnderecoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private String bairro;
 
+    @NotBlank
     private String cep;
 
+    @NotBlank
     private String cidade;
 
+    @NotBlank
     private String complemento;
 
+    @NotEmpty
+    @Size(max = 2)
     private String estado;
 
+    @NotBlank
     private String logadouro;
 
+    @NotNull
     private Integer numero;
 
     private Long usuario;
 
     @Deprecated
-    public Endereco() {}
+    public EnderecoModel() {}
 
-    public Endereco(String bairro, String cep, String cidade, String complemento, String estado, String logadouro, Integer numero, Long usuario) {
+    public EnderecoModel(String bairro, String cep, String cidade, String complemento, String estado, String logadouro, Integer numero, Long usuario) {
         this.bairro = bairro;
         this.cep = cep;
         this.cidade = cidade;

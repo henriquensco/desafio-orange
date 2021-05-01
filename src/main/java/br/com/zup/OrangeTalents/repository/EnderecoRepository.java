@@ -1,7 +1,10 @@
 package br.com.zup.OrangeTalents.repository;
 
-import br.com.zup.OrangeTalents.models.Endereco;
+import br.com.zup.OrangeTalents.models.EnderecoModel;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface EnderecoRepository extends JpaRepository<Endereco, Long> {
+@Repository
+public interface EnderecoRepository extends JpaRepository<EnderecoModel, Long> {
 }
+

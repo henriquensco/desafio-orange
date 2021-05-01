@@ -1,6 +1,6 @@
 package br.com.zup.OrangeTalents.controllers;
 
-import br.com.zup.OrangeTalents.models.Usuario;
+import br.com.zup.OrangeTalents.models.UsuarioModel;
 import br.com.zup.OrangeTalents.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ public class UsuarioController {
 
     @PostMapping("/usuario")
     @ResponseStatus(HttpStatus.CREATED)
-    String usuario(@RequestBody @Valid Usuario usuario) {
+    public String usuario(@RequestBody @Valid UsuarioModel usuario) {
         repository.save(usuario);
         return usuario.toString();
     }

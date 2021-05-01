@@ -1,9 +1,10 @@
 package br.com.zup.OrangeTalents.requests;
 
-import br.com.zup.OrangeTalents.models.Endereco;
+import br.com.zup.OrangeTalents.models.EnderecoModel;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Component
@@ -23,7 +24,7 @@ public class EnderecoRequest {
     @NotBlank
     private String cidade;
 
-    @NotBlank
+    @NotEmpty
     @Size(max = 2)
     private String estado;
 
@@ -62,8 +63,8 @@ public class EnderecoRequest {
         return userId;
     }
 
-    public Endereco toModel() {
-        return new Endereco(
+    public EnderecoModel toModel() {
+        return new EnderecoModel(
                 this.bairro,
                 this.cep,
                 this.cidade,

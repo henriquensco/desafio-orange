@@ -1,12 +1,13 @@
 package br.com.zup.OrangeTalents.controllers;
 
 import br.com.zup.OrangeTalents.requests.EnderecoRequest;
-import br.com.zup.OrangeTalents.models.Usuario;
+import br.com.zup.OrangeTalents.models.UsuarioModel;
 import br.com.zup.OrangeTalents.repository.EnderecoRepository;
 import br.com.zup.OrangeTalents.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.function.EntityResponse;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -25,7 +26,7 @@ public class EnderecoController {
     @ResponseStatus(HttpStatus.CREATED)
     public String criarEndereco(@RequestBody EnderecoRequest enderecoRequest) {
 
-        Optional<Usuario> usuario = usuarioRepository.findById(enderecoRequest.getUserId());
+        Optional<UsuarioModel> usuario = usuarioRepository.findById(enderecoRequest.getUserId());
 
         if(usuario.isPresent()) {
             var endereco = enderecoRepository.save(enderecoRequest.toModel());
@@ -35,6 +36,7 @@ public class EnderecoController {
             return usuario.get().toString();
         }
 
-        return "feio";
+        return enderecoRepository.toString();
     }
+
 }

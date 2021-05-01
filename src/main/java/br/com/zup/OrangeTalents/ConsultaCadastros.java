@@ -1,6 +1,6 @@
 package br.com.zup.OrangeTalents;
 
-import br.com.zup.OrangeTalents.models.Usuario;
+import br.com.zup.OrangeTalents.models.UsuarioModel;
 import br.com.zup.OrangeTalents.repository.UsuarioRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class ConsultaCadastros {
 
     @GetMapping("/api/orange")
     @ResponseStatus(HttpStatus.OK)
-    public List<Usuario> fetchAllUsuarios() {
+    public List<UsuarioModel> fetchAllUsuarios() {
 
         return repository.findAll();
 
