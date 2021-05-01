@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -31,6 +32,7 @@ public class Usuario {
     //@Column(unique = true)
     @NotBlank
     @CPF
+    @Pattern(regexp = "([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})")
     private String cpf;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
