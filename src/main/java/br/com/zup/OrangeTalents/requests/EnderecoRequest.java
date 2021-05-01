@@ -1,5 +1,6 @@
-package br.com.zup.OrangeTalents.ResponsabilityEndereco;
+package br.com.zup.OrangeTalents.requests;
 
+import br.com.zup.OrangeTalents.models.Endereco;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
@@ -69,6 +70,7 @@ public class EnderecoRequest {
                 this.complemento,
                 this.estado,
                 this.logadouro,
-                this.numero );
+                this.numero,
+                this.userId);
     }
 }

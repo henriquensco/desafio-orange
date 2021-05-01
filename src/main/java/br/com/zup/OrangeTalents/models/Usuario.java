@@ -1,6 +1,4 @@
-package br.com.zup.OrangeTalents.ResponsabilityUsuario;
-
-import br.com.zup.OrangeTalents.ResponsabilityEndereco.Endereco;
+package br.com.zup.OrangeTalents.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -28,8 +26,7 @@ public class Usuario {
 
     private LocalDate dataNasc;
 
-    @OneToMany
-    @JoinColumn(name = "user_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private List<Endereco> enderecos;
 
     @Deprecated

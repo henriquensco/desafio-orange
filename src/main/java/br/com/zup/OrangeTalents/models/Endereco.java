@@ -1,6 +1,4 @@
-package br.com.zup.OrangeTalents.ResponsabilityEndereco;
-
-import br.com.zup.OrangeTalents.ResponsabilityUsuario.Usuario;
+package br.com.zup.OrangeTalents.models;
 
 import javax.persistence.*;
 
@@ -26,14 +24,13 @@ public class Endereco {
 
     private Integer numero;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private Usuario usuario;
+    @JoinColumn()
+    private Long usuario;
 
     @Deprecated
     public Endereco() {}
 
-    public Endereco(String bairro, String cep, String cidade, String complemento, String estado, String logadouro, Integer numero) {
+    public Endereco(String bairro, String cep, String cidade, String complemento, String estado, String logadouro, Integer numero, Long usuario) {
         this.bairro = bairro;
         this.cep = cep;
         this.cidade = cidade;
@@ -41,6 +38,7 @@ public class Endereco {
         this.estado = estado;
         this.logadouro = logadouro;
         this.numero = numero;
+        this.usuario = usuario;
     }
 
     public Long getId() {
@@ -75,11 +73,11 @@ public class Endereco {
         return numero;
     }
 
-    public Usuario getUsuario() {
+    public Long getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(Long usuario) {
         this.usuario = usuario;
     }
 
@@ -97,4 +95,5 @@ public class Endereco {
                 ", usuario=" + usuario +
                 '}';
     }
+
 }

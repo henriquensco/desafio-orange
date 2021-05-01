@@ -1,7 +1,7 @@
 package br.com.zup.OrangeTalents;
 
-import br.com.zup.OrangeTalents.ResponsabilityUsuario.Usuario;
-import br.com.zup.OrangeTalents.ResponsabilityUsuario.UsuarioRepository;
+import br.com.zup.OrangeTalents.models.Usuario;
+import br.com.zup.OrangeTalents.repository.UsuarioRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

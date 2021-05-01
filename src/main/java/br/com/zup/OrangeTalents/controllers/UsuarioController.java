@@ -1,5 +1,7 @@
-package br.com.zup.OrangeTalents.ResponsabilityUsuario;
+package br.com.zup.OrangeTalents.controllers;
 
+import br.com.zup.OrangeTalents.models.Usuario;
+import br.com.zup.OrangeTalents.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

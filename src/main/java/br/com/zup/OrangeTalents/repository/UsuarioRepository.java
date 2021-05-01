@@ -1,5 +1,6 @@
-package br.com.zup.OrangeTalents.ResponsabilityUsuario;
+package br.com.zup.OrangeTalents.repository;
 
+import br.com.zup.OrangeTalents.models.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

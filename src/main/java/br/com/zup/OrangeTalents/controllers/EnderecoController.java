@@ -1,7 +1,9 @@
-package br.com.zup.OrangeTalents.ResponsabilityEndereco;
+package br.com.zup.OrangeTalents.controllers;
 
-import br.com.zup.OrangeTalents.ResponsabilityUsuario.Usuario;
-import br.com.zup.OrangeTalents.ResponsabilityUsuario.UsuarioRepository;
+import br.com.zup.OrangeTalents.requests.EnderecoRequest;
+import br.com.zup.OrangeTalents.models.Usuario;
+import br.com.zup.OrangeTalents.repository.EnderecoRepository;
+import br.com.zup.OrangeTalents.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

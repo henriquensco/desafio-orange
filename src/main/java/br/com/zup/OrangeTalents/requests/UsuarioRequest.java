@@ -1,6 +1,5 @@
-package br.com.zup.OrangeTalents.ResponsabilityUsuario;
+package br.com.zup.OrangeTalents.requests;
 
-import br.com.zup.OrangeTalents.ResponsabilityEndereco.EnderecoRequest;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
